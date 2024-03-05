@@ -115,9 +115,9 @@ public class PatchClass
         //Neither bitfield effects the display
         //sb.Bitfield = (uint)SpellFlags.Beneficial;
 
-        //DB spell properties
         var s = original._spell.Clone();
         s.StatModVal = 1000;
+        //s.TransferBitfield = (uint)SpellFlags.Beneficial;
 
         customSpell._spellBase = sb;
         customSpell._spell = s;
@@ -168,7 +168,6 @@ public class PatchClass
         p.SetProperty(Satiety, next);
         p.SendMessage($"You have {next:0.0} seconds of fullness");
     }
-
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(Player), nameof(Player.Heartbeat), new Type[] { typeof(double) })]

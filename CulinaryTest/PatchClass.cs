@@ -122,6 +122,7 @@ public class PatchClass
         customSpell._spellBase = sb;
         customSpell._spell = s;
 
+        //A good mod probably saves a copy of spells it replaces and swaps them back in at shutdown / clears custom ones it added
         ClearSpell();
         if (DatabaseManager.World.spellCache.TryAdd(CUSTOM_ID, s))
             ModManager.Log($"Updated DB Spell: {CUSTOM_ID} - {s.Name}");
